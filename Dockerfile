@@ -2,7 +2,7 @@ FROM alpine:3.6
 
 LABEL maintainer="The Idle Developer <theidledeveloper@gmail.com>"
 
-ENV LANG='C.UTF-8'
+ENV LANG='C.UTF-8' \
     JAVA_HOME='/usr/lib/jvm/java-1.8-openjdk' \
     PATH="$PATH:/usr/lib/jvm/java-1.8-openjdk/jre/bin:/usr/lib/jvm/java-1.8-openjdk/bin" \
     JAVA_VERSION='8u131' \
