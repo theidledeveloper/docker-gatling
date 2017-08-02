@@ -25,9 +25,8 @@ ENV GATLING_VERSION='2.2.5' \
     GATLING_HOME='/opt/gatling' \
     PATH='/opt/gatling/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
 
-RUN mkdir -p "${GATLING_HOME}"
-
-RUN apk upgrade --update-cache --no-cache --available && \
+RUN mkdir -p "${GATLING_HOME}" && \
+    apk upgrade --update-cache --no-cache --available && \
     apk add --update --update-cache --no-cache \
       wget && \
     mkdir -p /tmp/downloads && \
@@ -38,7 +37,7 @@ RUN apk upgrade --update-cache --no-cache --available && \
     mv /tmp/archive/gatling-charts-highcharts-bundle-${GATLING_VERSION}/* "${GATLING_HOME}/" && \
     rm -rf /tmp/*
 
-WORKDIR ${GATLING_HOME}
+WORKDIR "${GATLING_HOME}"
 
 VOLUME ["/opt/gatling/conf", "/opt/gatling/results", "/opt/gatling/user-files"]
 
